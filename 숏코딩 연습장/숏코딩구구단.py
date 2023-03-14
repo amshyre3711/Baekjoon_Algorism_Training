@@ -1,0 +1,1 @@
+f=open("f.txt","w");f.write(str([i for i in([["{}*{}={}".format(x,s,x*s)for s in range(1,10)]for x in range(2,int(input())+1)])]));f.close()
