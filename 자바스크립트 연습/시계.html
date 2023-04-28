@@ -1,0 +1,33 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>제목</title>
+<style>
+	body{
+		background-color : black;
+		color : orange;
+	}
+	div{
+		font-size : 22px;
+	}
+	button{
+		background-color : black;
+		color : orange;
+		border : none;
+	}
+</style>
+</head>
+<body>
+	<h1>현재 시간 보기</h1>
+	<button onclick="setInterval(xl, 1000);">여기를 누르면 현재 시간을 출력합니다.</button>
+	<h1>시간 출력</h1>
+	<div id="div"></div>
+	<script>
+		function xl(){
+		const x = document.querySelector("#div");
+		const now = new Date();
+		x.innerHTML="<br>"+now.getFullYear()+"년 "+now.getMonth()+"월 "+now.getDate()+"일 "+now.getHours()+"시 "+now.getMinutes()+"분 "+now.getSeconds()+"초 <br>";
+		}
+	</script>
+</body>
+</html>

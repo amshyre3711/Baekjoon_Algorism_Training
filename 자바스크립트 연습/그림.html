@@ -1,0 +1,45 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>제목</title>
+<style>
+	canvas{
+		background-color : white;
+	}
+</style>
+</head>
+<body>
+	<canvas height=800 width= 400></canvas>
+	
+	
+	<script>
+		const canvas = document.querySelector("canvas");
+		const ctx = canvas.getContext("2d");
+		
+		ctx.strokeStyle = "black";
+		ctx.lineWidth = 1.0;
+		ctx.lineCap = "round";
+		
+		canvas.addEventListener("touchstart", (e)=>starting(e));
+		canvas.addEventListener("touchmove", (e)=>drawing(e));
+		canvas.addEventListener("touchend", ending());
+		
+		function starting(e){
+			const x = e.touches[0].clientX;
+			const y = e.touches[0].clientY;
+			ctx.beginPath();
+			ctx.moveTo(x, y);
+		}
+		function drawing(e){
+			const x = e.touches[0].clientX;
+			const y = e.touches[0].clientY;
+			ctx.lineTo(x, y);
+			ctx.stroke();
+		}
+		function ending(){
+			ctx.closePath()
+		}
+		
+	</script>
+</body>
+</html>
