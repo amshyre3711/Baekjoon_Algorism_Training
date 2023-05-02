@@ -1,0 +1,92 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>채팅 UI 만들기</title>
+<style>
+	body{
+		background-color : black;
+		color : white;
+	}
+	#chat{
+		color : black;
+		margin : 1px;
+		width : 100%;
+		}
+	#you{
+		background-color : #FFC343;
+		margin : 1px;
+		text-align : left;
+		border : solid 1px;
+		padding : 5px;
+		border-radius : 5px;
+	}
+	#chat a{
+		font-size : 10px;
+		color : blue;
+	}
+	#my{
+		background-color : #FFC343;
+		margin : 1px;
+		text-align : right;
+		border : solid 1px;
+		padding : 5px;
+		border-radius : 5px;
+	}
+	.inp input{
+		margin : 2px;
+		border-radius : 5px;
+		background-color : white;
+		padding : 5px;
+		text-align : center;
+		width : 75%;
+		height : 45px;
+	}
+	.inp button{
+		margin : 2px;
+		border-radius : 5px;
+		background-color : #FFC343;
+		padding : 5px;
+		width : 20%;
+		height : 45px;
+	}
+	@media only screen and (max-width: 768px) {
+    /* 작은 디바이스용 스타일 */
+    body {
+      width: 95%;
+    }
+  }
+</style>
+</head>
+<body>
+	<h1>채팅 UI 만들기</h1>
+	<div id = "chat"></div>
+	<div class = "inp"><input type = "text"><button onclick ="typing()">전송</button></div>
+	
+	<script>
+		test();
+		const bod = document.querySelector("input");
+		bod.addEventListener("keydown", (e)=> keyc(e));
+		
+		function test(){
+			const dot = document.querySelector("#chat");
+			const date = new Date();
+			let tt = "<div id='you'>자바스크립트로 UI 만들기<br><a>상대방 : "+date.getFullYear()+"년 "+date.getHours()+"월 "+date.getDay()+"일 "+date.getHours()+"시 "+date.getMinutes()+"분 "+date.getSeconds()+"초 "+"</a></div>";
+			dot.innerHTML = tt;
+		}
+		function keyc(e){
+			if (e.keyCode == 13){
+				typing();
+			}
+		}
+		function typing(){
+			const dot = document.querySelector("#chat");
+			const chat = document.querySelector("input");
+			const date = new Date();
+			if (chat.value !=""){
+			dot.innerHTML +="<div id='my'>"+chat.value+"<br><a>나 : "+date.getFullYear()+"년 "+date.getHours()+"월 "+date.getDay()+"일 "+date.getHours()+"시 "+date.getMinutes()+"분 "+date.getSeconds()+"초 "+"</a></div>";
+			chat.value ="";
+			}
+		}
+	</script>
+</body>
+</html>
